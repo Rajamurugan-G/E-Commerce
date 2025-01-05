@@ -1,0 +1,37 @@
+{% extends 'shop/layout/main.html' %}
+{% block title%}
+Registration page
+{%  endblock title%}
+{% block content %}
+<section class="py-5 text-center container" style="margin-top: 70px;">
+    <div class="row py-lg-5">
+        <h1 class='fw-light'>Bestseller</h1>
+
+    </div>
+</section>   
+<section class="bg-light py-4 my-5" >
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h4 class="mb-3">Categories</h4>
+                <hr style="border-color: aliceblue;">
+                {% include 'shop/inc/message.html' %}
+            </div>
+            {% for item in c %}
+            <div class="col-md-4 col-lg-3">
+                 <div class="card my-3"  >
+                    <img src="{{item.image.url}}" class="card-image-top " alt="Categories" height="250px">
+                    <a href="{% url 'collectionview' item.name %}">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">{{item.name}}</h5>
+                        <p class="card-text">{{item.description}} </p>
+                        
+                    </div>
+                    </a> 
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{%  endblock content %}
